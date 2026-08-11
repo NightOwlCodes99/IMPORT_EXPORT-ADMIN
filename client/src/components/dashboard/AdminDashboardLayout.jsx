@@ -147,7 +147,7 @@ const AdminDashboardLayout = () => {
                   >
                     {({ isActive }) => (
                       <>
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isActive ? 'bg-white/20' : `${item.bgLight}`}`}>
+                        <div className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center ${isActive ? 'bg-white/20' : `${item.bgLight}`}`}>
                           <i className={`fas ${item.icon} text-sm ${isActive ? 'text-white' : item.iconColor}`}></i>
                         </div>
                         {isSidebarOpen && <span>{item.label}</span>}
@@ -223,7 +223,7 @@ const AdminDashboardLayout = () => {
                   >
                     {({ isActive }) => (
                       <>
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isActive ? 'bg-white/20' : `${item.bgLight}`}`}>
+                        <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center ${isActive ? 'bg-white/20' : `${item.bgLight}`}`}>
                           <i className={`fas ${item.icon} text-xs ${isActive ? 'text-white' : item.iconColor}`}></i>
                         </div>
                         <span>{item.label}</span>
