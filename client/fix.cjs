@@ -1,0 +1,1 @@
+﻿const fs = require('fs'); const file = 'f:/MERN_PROJECTS/IMPORT_EXPORT/client/src/utils/whatsapp.js'; let content = fs.readFileSync(file, 'utf8'); content = content.replace(/export const WHATSAPP_API_URL.*/, 'export const WHATSAPP_API_URL = \https://api.whatsapp.com/send?phone=\\\;'); fs.writeFileSync(file, content);

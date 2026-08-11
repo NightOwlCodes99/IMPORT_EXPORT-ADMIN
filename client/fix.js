@@ -1,0 +1,1 @@
+﻿import fs from 'fs'; const file = 'f:/MERN_PROJECTS/IMPORT_EXPORT/client/src/utils/whatsapp.js'; let content = fs.readFileSync(file, 'utf8'); content = content.replace(/\\\\\\\\D/g, '\\\\D'); fs.writeFileSync(file, content);

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+*.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Uploads (user uploaded files)
+uploads/
+temp/
+
+# Testing
+coverage/
+
+# Vercel
+.vercel
+
+# PM2
+.pm2/
+ecosystem.config.js
+
+# SSL certificates (if local)
+*.pem
+*.key
+*.crt
