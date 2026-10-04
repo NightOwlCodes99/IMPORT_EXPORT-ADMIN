@@ -28,7 +28,9 @@ const createAdminUser = async () => {
         password: '12345678',
         phone: '+1234567890',
         company: 'Nexarion Global Exports',
-        country: 'United States'
+        country: 'India',
+        role: 'admin',
+        adminRole: 'super-admin'
       },
       {
         name: 'Nexarion Admin',
@@ -36,11 +38,23 @@ const createAdminUser = async () => {
         password: '12345678',
         phone: '+1234567890',
         company: 'Nexarion Global Exports',
-        country: 'United States'
+        country: 'India',
+        role: 'admin',
+        adminRole: 'super-admin'
+      },
+      {
+        name: 'Super Admin',
+        email: 'admin@nexarion.com',
+        password: 'Password123!',
+        phone: '+1234567890',
+        company: 'Nexarion Global Exports',
+        country: 'United States',
+        role: 'admin',
+        adminRole: 'super-admin'
       }
     ];
 
-    console.log('\n🔐 ===== CREATING ADMIN USERS =====\n');
+    console.log('\n🔐 ===== CREATING/UPDATING ADMIN USERS =====\n');
 
     for (const adminData of adminUsers) {
       // Check if admin already exists
@@ -51,20 +65,22 @@ const createAdminUser = async () => {
         
         // Force update password and role
         existingAdmin.password = adminData.password;
+        existingAdmin.name = adminData.name;
         existingAdmin.role = 'admin';
+        existingAdmin.adminRole = 'super-admin';
         existingAdmin.isActive = true;
         existingAdmin.isVerified = true;
         existingAdmin.isEmailVerified = true;
         existingAdmin.authProvider = 'local';
         await existingAdmin.save();
-        console.log('✅ Admin user updated with fresh password');
-        console.log('📧 Email:', existingAdmin.email);
-        console.log('🔑 Password: 12345678\n');
+        console.log(`✅ Admin user updated: ${existingAdmin.email}`);
+        console.log(`🔑 Password: ${adminData.password}\n`);
       } else {
         // Create new admin user
         const admin = await User.create({
           ...adminData,
           role: 'admin',
+          adminRole: 'super-admin',
           isActive: true,
           isVerified: true,
           isEmailVerified: true,
@@ -73,21 +89,21 @@ const createAdminUser = async () => {
 
         console.log('🎉 Admin user created successfully!');
         console.log('📧 Email:', admin.email);
-        console.log('🔑 Password: 12345678');
+        console.log('🔑 Password:', adminData.password);
         console.log('👤 Name:', admin.name);
         console.log('🛡️  Role:', admin.role);
+        console.log('👑 Admin Role:', admin.adminRole);
         console.log('');
       }
     }
 
     console.log('==========================================');
-    console.log('✅ All admin users processed!');
+    console.log('✅ All admin users processed successfully!');
     console.log('==========================================');
-    console.log('\n⚠️  IMPORTANT: Please change passwords after first login!');
-    console.log('\n🔐 Admin Login URL: http://localhost:3001/admin/login');
-    console.log('\nAdmin Credentials:');
-    console.log('1. jsheta15@gmail.com / 12345678');
-    console.log('2. nexarionglobalexports@gmail.com / 12345678');
+    console.log('\n🔐 Available Admin Logins:');
+    console.log('1. Email: jsheta15@gmail.com | Password: 12345678');
+    console.log('2. Email: nexarionglobalexports@gmail.com | Password: 12345678');
+    console.log('3. Email: admin@nexarion.com | Password: Password123!');
     console.log('\n');
 
     process.exit(0);

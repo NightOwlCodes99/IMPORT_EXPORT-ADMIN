@@ -7,6 +7,8 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node utils/seeder.js",
+    "create-admin": "node create-admin.js",
+    "seed-users": "node seed-users.js",
     "remove-console": "node remove-console-logs.js",
     "remove-console:preview": "node remove-console-logs.js --dry-run",
     "prebuild": "npm run remove-console",
